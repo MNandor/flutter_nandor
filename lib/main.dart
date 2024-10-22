@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:country_flags/country_flags.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +55,13 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+enum Language{
+  ENGLISH,
+  GERMAN,
+  ROMANIAN,
+  SWEDISH
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -66,6 +74,15 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  Language chosenLanguage = Language.ENGLISH;
+
+  void _setLanguage(Language newLang){
+    setState(() {
+      chosenLanguage = newLang;
+    });
+
   }
 
   @override
@@ -85,6 +102,37 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+         actions: [
+          IconButton(
+            icon: CountryFlag.fromLanguageCode('en', shape: const Circle(),),
+            tooltip: 'English',
+            onPressed: () {
+              _setLanguage(Language.ENGLISH);
+            },
+          ),
+          IconButton(
+            icon: CountryFlag.fromLanguageCode('de', shape: const Circle(),),
+            tooltip: 'German',
+            onPressed: () {
+              _setLanguage(Language.GERMAN);
+            },
+          ),
+          IconButton(
+            icon: CountryFlag.fromCountryCode('ro', shape: const Circle(),),
+            tooltip: 'Romanian',
+            onPressed: () {
+              _setLanguage(Language.ROMANIAN);
+            },
+          ),
+          IconButton(
+            icon: CountryFlag.fromCountryCode('se', shape: const Circle(),),
+            tooltip: 'Romanian',
+            onPressed: () {
+              _setLanguage(Language.SWEDISH);
+            },
+          ),
+
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -105,8 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Text(
+              'The app is in this language: ${chosenLanguage.name}',
             ),
             Text(
               '$_counter',
