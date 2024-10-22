@@ -76,6 +76,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Map<Language, Map<String, String>> langMaps = {
+    Language.ENGLISH: {
+      "Hello": "Hello"
+    },
+    Language.GERMAN: {
+      "Hello": "Hallo"
+    },
+    Language.ROMANIAN: {
+      "Hello": "Salut"
+    },
+    Language.SWEDISH: {
+      "Hello": "Hej"
+    },
+
+  };
+
   Language chosenLanguage = Language.ENGLISH;
 
   void _setLanguage(Language newLang){
@@ -154,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'The app is in this language: ${chosenLanguage.name}',
+              '${langMaps[chosenLanguage]?["Hello"]}! The app is in this language: ${chosenLanguage.name}',
             ),
             Text(
               '$_counter',
