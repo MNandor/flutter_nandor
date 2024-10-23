@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  coast:
+    dependency: "direct main"
+    description:
+      name: coast
+      sha256: a85fdf09a387ea511ce790a79a11e673b8ee05e1ac142e17e0fde666a8fda853
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   collection:
     dependency: transitive
     description:
