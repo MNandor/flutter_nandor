@@ -65,15 +65,20 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int currentPage = 0;
+  bool reachedBottom = false;
   void _onScroll(int page){
     setState(() {
       currentPage = page;
+      reachedBottom = currentPage == (_beaches.length-1);
     });
   }
 
   void _scrollDown(){
     setState(() {
-      _coastController.animateTo(beach: currentPage +1);
+      if (reachedBottom)
+        _coastController.animateTo(beach: 0);
+      else
+        _coastController.animateTo(beach: currentPage +1);
     });
   }
 
@@ -137,8 +142,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _scrollDown,
-        tooltip: 'Scroll down',
-        child: const Icon(Icons.arrow_downward_sharp),
+        tooltip: reachedBottom ? 'Scroll up' : 'Scroll down',
+        child: Icon(reachedBottom ? Icons.arrow_upward_sharp: Icons.arrow_downward_sharp),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
