@@ -20,10 +20,17 @@ class MyFirstPage extends StatefulWidget {
 class _MyFirstPageState extends State<MyFirstPage> {
   @override
   Widget build(BuildContext context) {
+
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
+    final bool isWider = screenWidth > screenHeight;
+
+
     return Crab(
       tag: "hero-test", 
       child: Container(
-        color: Colors.red,
+        color: isWider ? Colors.red : Colors.orange,
         width: 200,
         height: 100,
         child: const Text("Hi")

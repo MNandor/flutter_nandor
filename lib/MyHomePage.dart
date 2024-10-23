@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final _beaches = [
     Beach(builder: (context) => MySecondPage(title: "Welcome!")),
     Beach(builder: (context) => MyFirstPage()),
+    Beach(builder: (context) => MySecondPage(title: "Goodbye!")),
   ];
 
   final _coastController = CoastController(initialPage: 0);
