@@ -17,7 +17,34 @@ class MyFirstPage extends StatefulWidget {
   State<MyFirstPage> createState() => _MyFirstPageState();
 }
 
-class _MyFirstPageState extends State<MyFirstPage> {
+class _MyFirstPageState extends State<MyFirstPage> with SingleTickerProviderStateMixin {
+  
+  late AnimationController _controller;
+  late Animation<Color?> _colorAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Initialize the AnimationController
+    _controller = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 4), // Duration for one cycle of animation
+    )..repeat(reverse: true); // Repeat the animation in reverse
+
+    // Define the color animation using ColorTween
+    _colorAnimation = ColorTween(
+      begin: Colors.green,
+      end: Colors.cyan,
+    ).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose(); // Dispose of the controller when done
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -27,14 +54,29 @@ class _MyFirstPageState extends State<MyFirstPage> {
     final bool isWider = screenWidth > screenHeight;
 
 
-    return Crab(
-      tag: "hero-test", 
-      child: Container(
-        color: isWider ? Colors.red : Colors.orange,
-        width: 200,
-        height: 100,
-        child: const Text("Hi")
-        )
-      );
+    return Column(
+      children: [
+        Crab(
+          tag: "hero-test", 
+          child: Container(
+            color: isWider ? Colors.red : Colors.orange,
+            width: 200,
+            height: 100,
+            child: const Text("Hi")
+            )
+          ),
+          AnimatedBuilder(
+            animation: _colorAnimation,
+            builder: (context, child) {
+              return Container(
+                color: _colorAnimation.value,
+                width: 200,
+                height: 100,
+                child: const Text("Hi")
+                );
+            }
+          )
+      ],
+    );
   }
 }
