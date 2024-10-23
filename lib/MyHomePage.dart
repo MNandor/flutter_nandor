@@ -62,7 +62,19 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       chosenLanguage = newLang;
     });
+  }
 
+  int currentPage = 0;
+  void _onScroll(int page){
+    setState(() {
+      currentPage = page;
+    });
+  }
+
+  void _scrollDown(){
+    setState(() {
+      _coastController.animateTo(beach: currentPage +1);
+    });
   }
 
   @override
@@ -117,15 +129,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Coast(
         beaches: _beaches,
         controller: _coastController,
+        onPageChanged: _onScroll,
         scrollDirection: Axis.vertical,
         observers: [
           CrabController(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: _scrollDown,
+        tooltip: 'Scroll down',
+        child: const Icon(Icons.arrow_downward_sharp),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
