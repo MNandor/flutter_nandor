@@ -1,6 +1,8 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 import 'package:country_flags/country_flags.dart';
+import 'package:flutter_nandor/PageCybersec.dart';
+import 'package:flutter_nandor/PageFlutter.dart';
 import 'package:flutter_nandor/PageMain.dart';
 
 import 'PageAndroid.dart';
@@ -35,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final _beaches = [
     Beach(builder: (context) => PageMain(title: "Welcome!")),
     Beach(builder: (context) => PageAndroid()),
+    Beach(builder: (context) => PageCybersec()),
+    Beach(builder: (context) => PageFlutter()),
     Beach(builder: (context) => PageMain(title: "Goodbye!")),
   ];
 

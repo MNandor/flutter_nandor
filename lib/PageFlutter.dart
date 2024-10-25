@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class PageAndroid extends StatefulWidget {
-  const PageAndroid({super.key});
+class PageFlutter extends StatefulWidget {
+  const PageFlutter({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,35 +16,13 @@ class PageAndroid extends StatefulWidget {
   // always marked "final"
 
   @override
-  State<PageAndroid> createState() => _PageAndroidState();
+  State<PageFlutter> createState() => _PageFlutterState();
 }
 
-class _PageAndroidState extends State<PageAndroid>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<Color?> _colorAnimation;
-
+class _PageFlutterState extends State<PageFlutter> {
   @override
   void initState() {
     super.initState();
-
-    // Initialize the AnimationController
-    _controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 4), // Duration for one cycle of animation
-    )..repeat(reverse: true); // Repeat the animation in reverse
-
-    // Define the color animation using ColorTween
-    _colorAnimation = ColorTween(
-      begin: Colors.green,
-      end: Colors.cyan,
-    ).animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose(); // Dispose of the controller when done
-    super.dispose();
   }
 
   @override
@@ -81,44 +59,24 @@ class _PageAndroidState extends State<PageAndroid>
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width:svgSize, height: svgSize,
-              ),
+              Crab(
+                  tag: "logo-android",
+                  child: SvgPicture.asset('assets/images/android.svg',
+                      width: svgSize, height: svgSize)),
               Crab(
                   tag: "logo-cybersec",
                   child: SvgPicture.asset('assets/images/cybersecurity.svg',
                       width: svgSize, height: svgSize)),
-              Crab(
-                  tag: "logo-flutter",
-                  child: SvgPicture.asset('assets/images/flutter.svg',
-                      width: svgSize, height: svgSize)),
+              SizedBox(
+                width: svgSize,
+                height: svgSize,
+              ),
             ],
           ),
           Crab(
-                  tag: "logo-android",
-                  child: SvgPicture.asset('assets/images/android.svg',
-                      width: svgSize, height: svgSize)),
-        ],
-      );
-
-      return Column(
-        children: [
-          Crab(
-              tag: "hero-test",
-              child: Container(
-                  color: isWider ? Colors.red : Colors.orange,
-                  width: 200,
-                  height: 100,
-                  child: const Text("Hi"))),
-          AnimatedBuilder(
-              animation: _colorAnimation,
-              builder: (context, child) {
-                return Container(
-                    color: _colorAnimation.value,
-                    width: 200,
-                    height: 100,
-                    child: const Text("Hi"));
-              })
+              tag: "logo-flutter",
+              child: SvgPicture.asset('assets/images/flutter.svg',
+                  width: svgSize, height: svgSize)),
         ],
       );
     } else {
