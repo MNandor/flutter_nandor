@@ -46,58 +46,80 @@ class _PageMainState extends State<PageMain> {
     final bool isWider = screenWidth > screenHeight;
 
     if (isWider) {
-      return Padding(
-        padding: EdgeInsets.all(32.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "I'm Nándor",
-                    style: TextStyle(
-                      fontSize: 72.0, // Set your desired font size
-                      fontWeight: FontWeight.bold,
+      return Stack(
+        children: [
+                    Align(
+            alignment: Alignment.centerLeft,
+            child: Crab(
+                tag:"logos-bg",
+                child: Container(
+                  height: 0,
+                  width: 0,
+                  decoration: const BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20.0), // Rounded top-left corner
+                      bottomRight:
+                          Radius.circular(20.0), // Rounded bottom-left corner
                     ),
                   ),
-                  Text(
-                    "I make secure Android apps.",
-                    style: TextStyle(
-                      fontSize: 48.0, // Set your desired font size
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Row(
+                ),
+              ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(32.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Crab(
-                          tag: "logo-android",
-                          child: SvgPicture.asset('assets/images/android.svg',
-                              width: svgSize, height: svgSize)),
-                      Crab(
-                          tag: "logo-cybersec",
-                          child: SvgPicture.asset(
-                              'assets/images/cybersecurity.svg',
-                              width: svgSize,
-                              height: svgSize)),
-                      Crab(
-                          tag: "logo-flutter",
-                          child: SvgPicture.asset('assets/images/flutter.svg',
-                              width: svgSize, height: svgSize)),
-                    ],
-                  )
-                ]),
-            const SizedBox(
-              width: 32,
+                      Text(
+                        "I'm Nándor",
+                        style: TextStyle(
+                          fontSize: 72.0, // Set your desired font size
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        "I make secure Android apps.",
+                        style: TextStyle(
+                          fontSize: 48.0, // Set your desired font size
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Crab(
+                              tag: "logo-android",
+                              child: SvgPicture.asset('assets/images/android.svg',
+                                  width: svgSize, height: svgSize)),
+                          Crab(
+                              tag: "logo-cybersec",
+                              child: SvgPicture.asset(
+                                  'assets/images/cybersecurity.svg',
+                                  width: svgSize,
+                                  height: svgSize)),
+                          Crab(
+                              tag: "logo-flutter",
+                              child: SvgPicture.asset('assets/images/flutter.svg',
+                                  width: svgSize, height: svgSize)),
+                        ],
+                      )
+                    ]),
+                const SizedBox(
+                  width: 32,
+                ),
+                //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
+                Expanded(
+                    child: Image.asset(
+                  'assets/images/face.jpg',
+                ))
+              ],
             ),
-            //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
-            Expanded(
-                child: Image.asset(
-              'assets/images/face.jpg',
-            ))
-          ],
-        ),
+          ),
+        ],
       );
 
       return Center(
