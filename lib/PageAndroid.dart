@@ -1,5 +1,7 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PageAndroid extends StatefulWidget {
   const PageAndroid({super.key});
@@ -17,8 +19,8 @@ class PageAndroid extends StatefulWidget {
   State<PageAndroid> createState() => _PageAndroidState();
 }
 
-class _PageAndroidState extends State<PageAndroid> with SingleTickerProviderStateMixin {
-  
+class _PageAndroidState extends State<PageAndroid>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
 
@@ -47,36 +49,77 @@ class _PageAndroidState extends State<PageAndroid> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
+    final double svgSize = 100;
+
     final bool isWider = screenWidth > screenHeight;
 
-
-    return Column(
-      children: [
-        Crab(
-          tag: "hero-test", 
-          child: Container(
-            color: isWider ? Colors.red : Colors.orange,
-            width: 200,
-            height: 100,
-            child: const Text("Hi")
-            )
+    if (isWider) {
+      return Stack(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              height: svgSize * 3.2,
+              width: svgSize * 1.1,
+              decoration: const BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20.0), // Rounded top-left corner
+                  bottomRight:
+                      Radius.circular(20.0), // Rounded bottom-left corner
+                ),
+              ),
+            ),
           ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width:svgSize, height: svgSize,
+              ),
+              Crab(
+                  tag: "logo-cybersec",
+                  child: SvgPicture.asset('assets/images/cybersecurity.svg',
+                      width: svgSize, height: svgSize)),
+              Crab(
+                  tag: "logo-flutter",
+                  child: SvgPicture.asset('assets/images/flutter.svg',
+                      width: svgSize, height: svgSize)),
+            ],
+          ),
+          Crab(
+                  tag: "logo-android",
+                  child: SvgPicture.asset('assets/images/android.svg',
+                      width: svgSize, height: svgSize)),
+        ],
+      );
+
+      return Column(
+        children: [
+          Crab(
+              tag: "hero-test",
+              child: Container(
+                  color: isWider ? Colors.red : Colors.orange,
+                  width: 200,
+                  height: 100,
+                  child: const Text("Hi"))),
           AnimatedBuilder(
-            animation: _colorAnimation,
-            builder: (context, child) {
-              return Container(
-                color: _colorAnimation.value,
-                width: 200,
-                height: 100,
-                child: const Text("Hi")
-                );
-            }
-          )
-      ],
-    );
+              animation: _colorAnimation,
+              builder: (context, child) {
+                return Container(
+                    color: _colorAnimation.value,
+                    width: 200,
+                    height: 100,
+                    child: const Text("Hi"));
+              })
+        ],
+      );
+    } else {
+      return Text("Mobile not supported!");
+    }
   }
 }
