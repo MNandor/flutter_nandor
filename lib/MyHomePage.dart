@@ -1,9 +1,9 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 import 'package:country_flags/country_flags.dart';
-import 'package:flutter_nandor/MySecondPage.dart';
+import 'package:flutter_nandor/PageMain.dart';
 
-import 'MyFirstPage.dart';
+import 'PageAndroid.dart';
 
 enum Language{
   ENGLISH,
@@ -33,9 +33,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final _beaches = [
-    Beach(builder: (context) => MySecondPage(title: "Welcome!")),
-    Beach(builder: (context) => MyFirstPage()),
-    Beach(builder: (context) => MySecondPage(title: "Goodbye!")),
+    Beach(builder: (context) => PageMain(title: "Welcome!")),
+    Beach(builder: (context) => PageAndroid()),
+    Beach(builder: (context) => PageMain(title: "Goodbye!")),
   ];
 
   final _coastController = CoastController(initialPage: 0);

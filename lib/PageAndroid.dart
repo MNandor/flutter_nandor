@@ -1,8 +1,8 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 
-class MyFirstPage extends StatefulWidget {
-  const MyFirstPage({super.key});
+class PageAndroid extends StatefulWidget {
+  const PageAndroid({super.key});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -14,10 +14,10 @@ class MyFirstPage extends StatefulWidget {
   // always marked "final"
 
   @override
-  State<MyFirstPage> createState() => _MyFirstPageState();
+  State<PageAndroid> createState() => _PageAndroidState();
 }
 
-class _MyFirstPageState extends State<MyFirstPage> with SingleTickerProviderStateMixin {
+class _PageAndroidState extends State<PageAndroid> with SingleTickerProviderStateMixin {
   
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;

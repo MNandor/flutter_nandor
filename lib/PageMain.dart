@@ -1,8 +1,8 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 
-class MySecondPage extends StatefulWidget {
-  const MySecondPage({super.key, required this.title});
+class PageMain extends StatefulWidget {
+  const PageMain({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -20,10 +20,10 @@ class MySecondPage extends StatefulWidget {
   final String title;
 
   @override
-  State<MySecondPage> createState() => _MySecondPageState();
+  State<PageMain> createState() => _PageMainState();
 }
 
-class _MySecondPageState extends State<MySecondPage> {
+class _PageMainState extends State<PageMain> {
 
   int _counter = 0;
 
