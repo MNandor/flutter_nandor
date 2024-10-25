@@ -74,6 +74,7 @@ class _PageMainState extends State<PageMain> {
                   '$_counter',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
+                Image.asset('assets/images/face.jpg')
               ],
             ),
           );
