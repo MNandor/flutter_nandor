@@ -38,6 +38,7 @@ dependencies:
   country_flags: ^3.0.0
   coast: ^2.0.2
   flutter_svg: ^2.0.10+1
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +69,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/app-screenshots/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
