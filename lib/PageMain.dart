@@ -66,57 +66,71 @@ class _PageMainState extends State<PageMain> {
                 ),
               ),
           ),
-          Padding(
-            padding: EdgeInsets.all(32.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "I'm Nándor",
-                        style: TextStyle(
-                          fontSize: 72.0, // Set your desired font size
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "I make secure Android apps.",
-                        style: TextStyle(
-                          fontSize: 48.0, // Set your desired font size
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Row(
+          Center(
+            child: Padding(
+              padding: EdgeInsets.all(32.0),
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 1400, minWidth: 800),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Crab(
-                              tag: "logo-android",
-                              child: SvgPicture.asset('assets/images/android.svg',
-                                  width: svgSize, height: svgSize)),
-                          Crab(
-                              tag: "logo-cybersec",
-                              child: SvgPicture.asset(
-                                  'assets/images/cybersecurity.svg',
-                                  width: svgSize,
-                                  height: svgSize)),
-                          Crab(
-                              tag: "logo-flutter",
-                              child: SvgPicture.asset('assets/images/flutter.svg',
-                                  width: svgSize, height: svgSize)),
-                        ],
-                      )
-                    ]),
-                const SizedBox(
-                  width: 32,
+                          Text(
+                            "I'm Nándor",
+                            style: TextStyle(
+                              fontSize: 72.0, // Set your desired font size
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            "I make secure Android apps.",
+                            style: TextStyle(
+                              fontSize: 48.0, // Set your desired font size
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Crab(
+                                  tag: "logo-android",
+                                  child: SvgPicture.asset('assets/images/android.svg',
+                                      width: svgSize, height: svgSize)),
+                              Crab(
+                                  tag: "logo-cybersec",
+                                  child: SvgPicture.asset(
+                                      'assets/images/cybersecurity.svg',
+                                      width: svgSize,
+                                      height: svgSize)),
+                              Crab(
+                                  tag: "logo-flutter",
+                                  child: SvgPicture.asset('assets/images/flutter.svg',
+                                      width: svgSize, height: svgSize)),
+                            ],
+                          )
+                        ]),
+                    const SizedBox(
+                      width: 32,
+                    ),
+                    //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
+                    Flexible(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                                        minWidth: 100,
+                                        minHeight: 100,
+                                        maxWidth: 640,
+                                        maxHeight: 640,
+                                      ),
+                        child: Image.asset(
+                                          'assets/images/face.jpg',
+                                        ),
+                      ),
+                    )
+                  ],
                 ),
-                //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
-                Expanded(
-                    child: Image.asset(
-                  'assets/images/face.jpg',
-                ))
-              ],
+              ),
             ),
           ),
         ],
