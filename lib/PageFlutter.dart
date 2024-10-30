@@ -1,4 +1,5 @@
 import 'package:coast/coast.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -147,10 +148,13 @@ class _PageFlutterState extends State<PageFlutter> {
               ),
             ],
           ),
-          Crab(
-              tag: "logo-flutter",
-              child: SvgPicture.asset('assets/images/flutter.svg',
-                  width: svgSize, height: svgSize)),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Crab(
+                tag: "logo-flutter",
+                child: SvgPicture.asset('assets/images/flutter.svg',
+                    width: svgSize, height: svgSize)),
+          ),
         ],
       );
     } else {

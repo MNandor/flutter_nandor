@@ -206,10 +206,13 @@ class _PageAndroidState extends State<PageAndroid>
                       width: svgSize, height: svgSize)),
             ],
           ),
-          Crab(
-              tag: "logo-android",
-              child: SvgPicture.asset('assets/images/android.svg',
-                  width: svgSize, height: svgSize)),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Crab(
+                tag: "logo-android",
+                child: SvgPicture.asset('assets/images/android.svg',
+                    width: svgSize, height: svgSize)),
+          ),
         ],
       );
 

@@ -73,10 +73,13 @@ class _PageCybersecState extends State<PageCybersec> {
                       width: svgSize, height: svgSize)),
             ],
           ),
-          Crab(
-              tag: "logo-cybersec",
-              child: SvgPicture.asset('assets/images/cybersecurity.svg',
-                  width: svgSize, height: svgSize)),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Crab(
+                tag: "logo-cybersec",
+                child: SvgPicture.asset('assets/images/cybersecurity.svg',
+                    width: svgSize, height: svgSize)),
+          ),
         ],
       );
     } else {
