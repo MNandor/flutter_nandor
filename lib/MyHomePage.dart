@@ -88,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  bool shouldShowAppBar = true;
+// todo change this when ready
+  bool shouldShowAppBar = false;
 
   @override
   Widget build(BuildContext context) {

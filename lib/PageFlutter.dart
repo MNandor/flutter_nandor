@@ -63,7 +63,7 @@ class _PageFlutterState extends State<PageFlutter> {
                       ),
                       EduWorkItem(
                         title: "Cross-Platform Development",
-                        location: "Bootcamp at Accenture",
+                        location: "Flutter Bootcamp",
                         description: "Lorem lorem",
                       ),
                       EduWorkItem(
@@ -187,10 +187,11 @@ class EduWorkItem extends StatelessWidget {
               fontSize: 32.0, // Set your desired font size
               fontStyle: FontStyle.italic),
         ),
-        Text(
-          description,
-          style: const TextStyle(fontSize: 24.0),
-        ),
+        // todo you probably want this back eventually
+        // Text(
+        //   description,
+        //   style: const TextStyle(fontSize: 24.0),
+        // ),
         SizedBox(
           height: 32,
         )
