@@ -74,7 +74,7 @@ Future<void> _openMailtoLink() async {
                 height: 0,
                 width: 0,
                 decoration: const BoxDecoration(
-                  color: Colors.green,
+                  color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(20.0), // Rounded top-left corner
                     bottomRight:

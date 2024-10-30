@@ -2,6 +2,7 @@ import 'package:coast/coast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_nandor/ViewLogosBackground.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -107,24 +108,7 @@ class _PageFlutterState extends State<PageFlutter> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Crab(
-              tag: "logos-bg",
-              child: Container(
-                height: svgSize * 3.2,
-                width: svgSize * 1.1,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20.0), // Rounded top-left corner
-                    bottomRight:
-                        Radius.circular(20.0), // Rounded bottom-left corner
-                  ),
-                ),
-              ),
-            ),
-          ),
+          ViewLogosBackground(svgSize: svgSize),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,

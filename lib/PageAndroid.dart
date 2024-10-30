@@ -2,6 +2,7 @@ import 'package:coast/coast.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_nandor/ViewLogosBackground.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -51,7 +52,8 @@ class _PageAndroidState extends State<PageAndroid>
   }
 
   String appName = "ConfuseGroups";
-  String appDescription = "Learning app based on multiple-choice questions, Spaced Repetition, and intelligent features based in Graph Theory.";
+  String appDescription =
+      "Learning app based on multiple-choice questions, Spaced Repetition, and intelligent features based in Graph Theory.";
   void _changePage(int page, CarouselPageChangedReason reason) {
     setState(() {
       switch (page) {
@@ -171,24 +173,7 @@ class _PageAndroidState extends State<PageAndroid>
               ],
             ),
           )),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Crab(
-              tag: "logos-bg",
-              child: Container(
-                height: svgSize * 3.2,
-                width: svgSize * 1.1,
-                decoration: const BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20.0), // Rounded top-left corner
-                    bottomRight:
-                        Radius.circular(20.0), // Rounded bottom-left corner
-                  ),
-                ),
-              ),
-            ),
-          ),
+          ViewLogosBackground(svgSize: svgSize),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
