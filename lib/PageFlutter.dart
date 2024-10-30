@@ -39,7 +39,7 @@ class _PageFlutterState extends State<PageFlutter> {
     if (isWider) {
       return Stack(
         children: [
-                    const Padding(
+          const Padding(
             padding: EdgeInsets.all(32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -53,28 +53,21 @@ class _PageFlutterState extends State<PageFlutter> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Babeș-Bolyai University",
-                      style: TextStyle(
-                        fontSize: 32.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
-                      ),
+                    EduWorkItem(
+                      title: "Master's of Cybersecurity",
+                      location: "Babeș-Bolyai University",
+                      description: "Lorem lorem",
                     ),
-                    Text("Hi! Lorem ipsum!", style: TextStyle(fontSize: 24.0),),
-                    Text(
-                      "Flutter Bootcamp",
-                      style: TextStyle(
-                        fontSize: 32.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
-                      ),
+                    EduWorkItem(
+                      title: "Cross-Platform Development",
+                      location: "Bootcamp at Accenture",
+                      description: "Lorem lorem",
                     ),
-                    Text(
-                      "Sapientia EMTE",
-                      style: TextStyle(
-                        fontSize: 32.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
+                    EduWorkItem(
+                      title: "Bachelor's of Computer Science",
+                      location: "Sapientia EMTE",
+                      description: "Lorem lorem",
+                    ),
                   ],
                 ),
                 Column(
@@ -86,28 +79,21 @@ class _PageFlutterState extends State<PageFlutter> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Cognizant",
-                      style: TextStyle(
-                        fontSize: 32.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
-                      ),
+                    EduWorkItem(
+                      title: "Android Reverse Engineer",
+                      location: "Cognizant",
+                      description: "Lorem lorem",
                     ),
-                    Text("Hi! Lorem ipsum!", style: TextStyle(fontSize: 24.0),),
-                    Text(
-                      "Endava",
-                      style: TextStyle(
-                        fontSize: 32.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
-                      ),
+                    EduWorkItem(
+                      title: "Android Engineer",
+                      location: "Endava",
+                      description: "Lorem lorem",
                     ),
-                    Text(
-                      "Accenture",
-                      style: TextStyle(
-                        fontSize: 32.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
+                    EduWorkItem(
+                      title: "Mobile Developer",
+                      location: "Accenture",
+                      description: "Lorem lorem",
+                    ),
                   ],
                 ),
               ],
@@ -116,7 +102,7 @@ class _PageFlutterState extends State<PageFlutter> {
           Align(
             alignment: Alignment.centerLeft,
             child: Crab(
-              tag:"logos-bg",
+              tag: "logos-bg",
               child: Container(
                 height: svgSize * 3.2,
                 width: svgSize * 1.1,
@@ -161,5 +147,46 @@ class _PageFlutterState extends State<PageFlutter> {
     } else {
       return ViewNoMobile();
     }
+  }
+}
+
+class EduWorkItem extends StatelessWidget {
+  final String title;
+  final String location;
+  final String description;
+
+  const EduWorkItem({
+    super.key,
+    required this.title,
+    required this.location,
+    required this.description,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 32.0, // Set your desired font size
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          location,
+          style: const TextStyle(
+              fontSize: 32.0, // Set your desired font size
+              fontStyle: FontStyle.italic),
+        ),
+        Text(
+          description,
+          style: const TextStyle(fontSize: 24.0),
+        ),
+        SizedBox(
+          height: 32,
+        )
+      ],
+    );
   }
 }
