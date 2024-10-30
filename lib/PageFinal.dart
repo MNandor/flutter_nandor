@@ -75,17 +75,17 @@ class _PageFinalState extends State<PageFinal> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Make your app.",
                             style: TextStyle(
                               fontSize: 48.0, // Set your desired font size
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
+                          const Text(
                             "Make it secure.",
                             style: TextStyle(
                               fontSize: 48.0, // Set your desired font size
@@ -97,15 +97,15 @@ class _PageFinalState extends State<PageFinal> {
                               // Add your download functionality here
                             },
                             style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 40, vertical: 20),
                               textStyle: TextStyle(fontSize: 72),
                             ),
-                            child: Text('Download CV'),
+                            child: const Text('Download CV'),
                           ),
                           InkWell(
                             onTap: () {},
-                            child: Text(
+                            child: const Text(
                               'Or email me directly...',
                               style: TextStyle(
                                 fontSize:
