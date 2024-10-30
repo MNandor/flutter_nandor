@@ -48,23 +48,23 @@ class _PageMainState extends State<PageMain> {
     if (isWider) {
       return Stack(
         children: [
-                    Align(
+          Align(
             alignment: Alignment.centerLeft,
             child: Crab(
-                tag:"logos-bg",
-                child: Container(
-                  height: 0,
-                  width: 0,
-                  decoration: const BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20.0), // Rounded top-left corner
-                      bottomRight:
-                          Radius.circular(20.0), // Rounded bottom-left corner
-                    ),
+              tag: "logos-bg",
+              child: Container(
+                height: 0,
+                width: 0,
+                decoration: const BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20.0), // Rounded top-left corner
+                    bottomRight:
+                        Radius.circular(20.0), // Rounded bottom-left corner
                   ),
                 ),
               ),
+            ),
           ),
           Center(
             child: Padding(
@@ -96,8 +96,10 @@ class _PageMainState extends State<PageMain> {
                             children: [
                               Crab(
                                   tag: "logo-android",
-                                  child: SvgPicture.asset('assets/images/android.svg',
-                                      width: svgSize, height: svgSize)),
+                                  child: SvgPicture.asset(
+                                      'assets/images/android.svg',
+                                      width: svgSize,
+                                      height: svgSize)),
                               Crab(
                                   tag: "logo-cybersec",
                                   child: SvgPicture.asset(
@@ -106,8 +108,10 @@ class _PageMainState extends State<PageMain> {
                                       height: svgSize)),
                               Crab(
                                   tag: "logo-flutter",
-                                  child: SvgPicture.asset('assets/images/flutter.svg',
-                                      width: svgSize, height: svgSize)),
+                                  child: SvgPicture.asset(
+                                      'assets/images/flutter.svg',
+                                      width: svgSize,
+                                      height: svgSize)),
                             ],
                           )
                         ]),
@@ -118,14 +122,17 @@ class _PageMainState extends State<PageMain> {
                     Flexible(
                       child: ConstrainedBox(
                         constraints: const BoxConstraints(
-                                        minWidth: 100,
-                                        minHeight: 100,
-                                        maxWidth: 640,
-                                        maxHeight: 640,
-                                      ),
-                        child: Image.asset(
-                                          'assets/images/face.jpg',
-                                        ),
+                          minWidth: 100,
+                          minHeight: 100,
+                          maxWidth: 640,
+                          maxHeight: 640,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(64.0),
+                          child: Image.asset(
+                            'assets/images/face.jpg',
+                          ),
+                        ),
                       ),
                     )
                   ],

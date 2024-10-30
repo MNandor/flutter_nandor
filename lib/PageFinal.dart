@@ -152,8 +152,11 @@ class _PageFinalState extends State<PageFinal> {
                           maxWidth: 640,
                           maxHeight: 640,
                         ),
-                        child: Image.asset(
-                          'assets/images/face.jpg',
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(64.0),
+                          child: Image.asset(
+                            'assets/images/face.jpg',
+                          ),
                         ),
                       ),
                     )
