@@ -75,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       currentPage = page;
       reachedBottom = currentPage == (_beaches.length-1);
+      shouldShowAppBar = false;
     });
   }
 
@@ -87,6 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  bool shouldShowAppBar = true;
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -96,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
+      appBar: shouldShowAppBar? AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
@@ -135,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
         ],
-      ),
+      ) : null,
       body: Coast(
         beaches: _beaches,
         controller: _coastController,
