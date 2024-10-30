@@ -37,6 +37,80 @@ class _PageFlutterState extends State<PageFlutter> {
     if (isWider) {
       return Stack(
         children: [
+                    const Padding(
+            padding: EdgeInsets.all(32.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      "Education",
+                      style: TextStyle(
+                        fontSize: 48.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Babeș-Bolyai University",
+                      style: TextStyle(
+                        fontSize: 32.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text("Hi! Lorem ipsum!", style: TextStyle(fontSize: 24.0),),
+                    Text(
+                      "Flutter Bootcamp",
+                      style: TextStyle(
+                        fontSize: 32.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Sapientia EMTE",
+                      style: TextStyle(
+                        fontSize: 32.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      "Work Experience",
+                      style: TextStyle(
+                        fontSize: 48.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Cognizant",
+                      style: TextStyle(
+                        fontSize: 32.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text("Hi! Lorem ipsum!", style: TextStyle(fontSize: 24.0),),
+                    Text(
+                      "Endava",
+                      style: TextStyle(
+                        fontSize: 32.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Accenture",
+                      style: TextStyle(
+                        fontSize: 32.0, // Set your desired font size
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
           Align(
             alignment: Alignment.centerLeft,
             child: Crab(

@@ -112,8 +112,9 @@ class _PageAndroidState extends State<PageAndroid>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(width: 100.0),
                 SizedBox(
-                  width: 600,
+                  width: 540,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -141,7 +142,7 @@ class _PageAndroidState extends State<PageAndroid>
                   ),
                 ),
                 SizedBox(
-                  width: 640,
+                  width: 600,
                   child: CarouselSlider(
                       options: CarouselOptions(
                         height: 800.0,
