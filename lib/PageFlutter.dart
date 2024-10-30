@@ -39,62 +39,70 @@ class _PageFlutterState extends State<PageFlutter> {
     if (isWider) {
       return Stack(
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      "Education",
-                      style: TextStyle(
-                        fontSize: 48.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 500),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Education",
+                        style: TextStyle(
+                          fontSize: 48.0, // Set your desired font size
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    EduWorkItem(
-                      title: "Master's of Cybersecurity",
-                      location: "Babeș-Bolyai University",
-                      description: "Lorem lorem",
-                    ),
-                    EduWorkItem(
-                      title: "Cross-Platform Development",
-                      location: "Bootcamp at Accenture",
-                      description: "Lorem lorem",
-                    ),
-                    EduWorkItem(
-                      title: "Bachelor's of Computer Science",
-                      location: "Sapientia EMTE",
-                      description: "Lorem lorem",
-                    ),
-                  ],
+                      EduWorkItem(
+                        title: "Master's of Cybersecurity",
+                        location: "Babeș-Bolyai University",
+                        description: "Lorem lorem",
+                      ),
+                      EduWorkItem(
+                        title: "Cross-Platform Development",
+                        location: "Bootcamp at Accenture",
+                        description: "Lorem lorem",
+                      ),
+                      EduWorkItem(
+                        title: "Bachelor's of Computer Science",
+                        location: "Sapientia EMTE",
+                        description: "Lorem lorem",
+                      ),
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Text(
-                      "Work Experience",
-                      style: TextStyle(
-                        fontSize: 48.0, // Set your desired font size
-                        fontWeight: FontWeight.bold,
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 500),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Work Experience",
+                        style: TextStyle(
+                          fontSize: 48.0, // Set your desired font size
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    EduWorkItem(
-                      title: "Android Reverse Engineer",
-                      location: "Cognizant",
-                      description: "Lorem lorem",
-                    ),
-                    EduWorkItem(
-                      title: "Android Engineer",
-                      location: "Endava",
-                      description: "Lorem lorem",
-                    ),
-                    EduWorkItem(
-                      title: "Mobile Developer",
-                      location: "Accenture",
-                      description: "Lorem lorem",
-                    ),
-                  ],
+                      EduWorkItem(
+                        title: "Android Reverse Engineer",
+                        location: "Cognizant",
+                        description: "Lorem lorem",
+                      ),
+                      EduWorkItem(
+                        title: "Android Engineer",
+                        location: "Endava",
+                        description: "Lorem lorem",
+                      ),
+                      EduWorkItem(
+                        title: "Mobile Developer",
+                        location: "Accenture",
+                        description: "Lorem lorem",
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
