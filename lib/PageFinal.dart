@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'ViewMyCuteFace.dart';
 
@@ -38,6 +39,20 @@ class _PageFinalState extends State<PageFinal> {
       _counter++;
     });
   }
+
+Future<void> _openCVLink() async {
+  Uri _url = Uri.parse('https://mnandor.github.io/Nandor.pdf');
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
+  }
+}
+
+Future<void> _openMailtoLink() async {
+  Uri _url = Uri.parse('mailto:majlanandor@gmail.com');
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -96,9 +111,7 @@ class _PageFinalState extends State<PageFinal> {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {
-                              // Add your download functionality here
-                            },
+                            onPressed: _openCVLink,
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 40, vertical: 20),
@@ -107,7 +120,7 @@ class _PageFinalState extends State<PageFinal> {
                             child: const Text('Download CV'),
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: _openMailtoLink,
                             child: const Text(
                               'Or email me directly...',
                               style: TextStyle(
@@ -120,28 +133,6 @@ class _PageFinalState extends State<PageFinal> {
                               ),
                             ),
                           ),
-                          Row(
-                           children: [
-                              Crab(
-                                  tag: "logo-android",
-                                  child: SvgPicture.asset(
-                                      'assets/images/android.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                              Crab(
-                                  tag: "logo-cybersec",
-                                  child: SvgPicture.asset(
-                                      'assets/images/cybersecurity.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                              Crab(
-                                  tag: "logo-flutter",
-                                  child: SvgPicture.asset(
-                                      'assets/images/flutter.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                            ],
-                          )
                         ]),
                     const SizedBox(
                       width: 32,
