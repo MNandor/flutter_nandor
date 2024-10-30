@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'ViewMyCuteFace.dart';
+
 class PageFinal extends StatefulWidget {
   const PageFinal({super.key, required this.title});
 
@@ -119,7 +121,7 @@ class _PageFinalState extends State<PageFinal> {
                             ),
                           ),
                           Row(
-                            children: [
+                           children: [
                               Crab(
                                   tag: "logo-android",
                                   child: SvgPicture.asset(
@@ -145,22 +147,7 @@ class _PageFinalState extends State<PageFinal> {
                       width: 32,
                     ),
                     //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
-                    Flexible(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          minWidth: 100,
-                          minHeight: 100,
-                          maxWidth: 640,
-                          maxHeight: 640,
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(64.0),
-                          child: Image.asset(
-                            'assets/images/face.jpg',
-                          ),
-                        ),
-                      ),
-                    )
+                    ViewMyCuteFace()
                   ],
                 ),
               ),
@@ -211,3 +198,5 @@ class _PageFinalState extends State<PageFinal> {
     }
   }
 }
+
+
