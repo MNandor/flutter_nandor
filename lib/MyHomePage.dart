@@ -6,6 +6,7 @@ import 'package:flutter_nandor/PageFlutter.dart';
 import 'package:flutter_nandor/PageMain.dart';
 
 import 'PageAndroid.dart';
+import 'PageFinal.dart';
 
 enum Language{
   ENGLISH,
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Beach(builder: (context) => PageAndroid()),
     Beach(builder: (context) => PageCybersec()),
     Beach(builder: (context) => PageFlutter()),
-    Beach(builder: (context) => PageMain(title: "Goodbye!")),
+    Beach(builder: (context) => PageFinal(title: "Goodbye!")),
   ];
 
   final _coastController = CoastController(initialPage: 0);
