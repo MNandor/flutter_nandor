@@ -1,4 +1,5 @@
 import 'package:coast/coast.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
@@ -38,10 +39,72 @@ class _PageCybersecState extends State<PageCybersec> {
     if (isWider) {
       return Stack(
         children: [
+          Center(
+              child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 1000),
+            child: Column(
+              children: [
+                SizedBox(height: svgSize),
+                const Text(
+                  "The Whole Lifecycle...",
+                  style: TextStyle(
+                    fontSize: 48.0, // Set your desired font size
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Text(
+                  "I'm an Android Developer and a Security Researcher. I'm happy to integrate into your existing team and take on additional responsibilities related to Linux sysadmin work, DevOps, Malware Analysis, and Penetration Testing.",
+                  style: TextStyle(
+                    fontSize: 24.0, // Set your desired font size
+                  ),
+                ),
+                RichText(
+                    text: const TextSpan(
+                        style: TextStyle(
+                          fontSize: 24.0, // Set your desired font size
+                        ),
+                        children: [
+                      TextSpan(
+                          text:
+                              "For previous employers, I've ususally worked in "),
+                      TextSpan(
+                          text: "Agile/Scrum",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(
+                          text:
+                              ". I've organized Workshops to train junior colleagues."),
+                    ])),
+                RichText(
+                    text: const TextSpan(
+                        style: TextStyle(
+                          fontSize: 24.0, // Set your desired font size
+                        ),
+                        children: [
+                      TextSpan(
+                          text: "In terms of Android development, I focus on "),
+                      TextSpan(
+                          text: "Jetpack Compose",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: " in "),
+                      TextSpan(
+                          text: "Kotlin",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: " with an approach based on "),
+                      TextSpan(
+                          text: "Clean Architecture",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      TextSpan(text: " and "),
+                      TextSpan(
+                          text: "MVVM.",
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                    ]))
+              ],
+            ),
+          )),
           Align(
             alignment: Alignment.centerLeft,
             child: Crab(
-              tag:"logos-bg",
+              tag: "logos-bg",
               child: Container(
                 height: svgSize * 3.2,
                 width: svgSize * 1.1,
