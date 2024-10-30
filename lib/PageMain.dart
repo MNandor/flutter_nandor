@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'ViewNoMobile.dart';
+
 class PageMain extends StatefulWidget {
   const PageMain({super.key, required this.title});
 
@@ -181,7 +183,9 @@ class _PageMainState extends State<PageMain> {
         ),
       );
     } else {
-      return Text("Mobile not yet implemented");
+      return ViewNoMobile();
     }
   }
 }
+
+

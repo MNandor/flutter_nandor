@@ -1,6 +1,7 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PageCybersec extends StatefulWidget {
@@ -83,7 +84,7 @@ class _PageCybersecState extends State<PageCybersec> {
         ],
       );
     } else {
-      return Text("Mobile not supported!");
+      return ViewNoMobile();
     }
   }
 }
