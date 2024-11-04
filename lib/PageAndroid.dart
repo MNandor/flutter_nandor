@@ -201,27 +201,6 @@ class _PageAndroidState extends State<PageAndroid>
           ),
         ],
       );
-
-      return Column(
-        children: [
-          Crab(
-              tag: "hero-test",
-              child: Container(
-                  color: isWider ? Colors.red : Colors.orange,
-                  width: 200,
-                  height: 100,
-                  child: const Text("Hi"))),
-          AnimatedBuilder(
-              animation: _colorAnimation,
-              builder: (context, child) {
-                return Container(
-                    color: _colorAnimation.value,
-                    width: 200,
-                    height: 100,
-                    child: const Text("Hi"));
-              })
-        ],
-      );
     } else {
       return ViewNoMobile();
     }
