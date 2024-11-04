@@ -7,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'ViewLogosRow.dart';
 import 'ViewNoMobile.dart';
+import 'ViewTitleTextName.dart';
+import 'ViewTitleTextSlogan.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({super.key, required this.title});
@@ -82,20 +84,8 @@ class _PageMainState extends State<PageMain> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "I'm Nándor",
-                            style: TextStyle(
-                              fontSize: 72.0, // Set your desired font size
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "I make secure Android apps.",
-                            style: TextStyle(
-                              fontSize: 48.0, // Set your desired font size
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          ViewTitleTextName(),
+                          ViewTitleTextSlogan(),
                           ViewLogosRow(svgSize: svgSize)
                         ]),
                     const SizedBox(
@@ -115,3 +105,5 @@ class _PageMainState extends State<PageMain> {
     }
   }
 }
+
+

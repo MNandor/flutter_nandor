@@ -13,6 +13,7 @@ class ViewLogosRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Crab(
             tag: "logo-android",
