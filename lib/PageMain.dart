@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_nandor/ViewMyCuteFace.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'ViewLogosRow.dart';
 import 'ViewNoMobile.dart';
 
 class PageMain extends StatefulWidget {
@@ -95,28 +96,7 @@ class _PageMainState extends State<PageMain> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Row(
-                            children: [
-                              Crab(
-                                  tag: "logo-android",
-                                  child: SvgPicture.asset(
-                                      'assets/images/android.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                              Crab(
-                                  tag: "logo-cybersec",
-                                  child: SvgPicture.asset(
-                                      'assets/images/cybersecurity.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                              Crab(
-                                  tag: "logo-flutter",
-                                  child: SvgPicture.asset(
-                                      'assets/images/flutter.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                            ],
-                          )
+                          ViewLogosRow(svgSize: svgSize)
                         ]),
                     const SizedBox(
                       width: 32,
@@ -135,5 +115,3 @@ class _PageMainState extends State<PageMain> {
     }
   }
 }
-
-
