@@ -6,6 +6,10 @@ import 'package:flutter_nandor/ViewLogosBackground.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'ViewEduWorkItem.dart';
+import 'ViewHistorySchool.dart';
+import 'ViewHistoryWork.dart';
+
 class PageFlutter extends StatefulWidget {
   const PageFlutter({super.key});
 
@@ -45,66 +49,8 @@ class _PageFlutterState extends State<PageFlutter> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 500),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Education",
-                        style: TextStyle(
-                          fontSize: 48.0, // Set your desired font size
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      EduWorkItem(
-                        title: "Master's of Cybersecurity",
-                        location: "Babeș-Bolyai University",
-                        description: "Lorem lorem",
-                      ),
-                      EduWorkItem(
-                        title: "Cross-Platform Development",
-                        location: "Flutter Bootcamp",
-                        description: "Lorem lorem",
-                      ),
-                      EduWorkItem(
-                        title: "Bachelor's of Computer Science",
-                        location: "Sapientia EMTE",
-                        description: "Lorem lorem",
-                      ),
-                    ],
-                  ),
-                ),
-                ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: 500),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Work Experience",
-                        style: TextStyle(
-                          fontSize: 48.0, // Set your desired font size
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      EduWorkItem(
-                        title: "Android Reverse Engineer",
-                        location: "Cognizant",
-                        description: "Lorem lorem",
-                      ),
-                      EduWorkItem(
-                        title: "Android Engineer",
-                        location: "Endava",
-                        description: "Lorem lorem",
-                      ),
-                      EduWorkItem(
-                        title: "Mobile Developer",
-                        location: "Accenture",
-                        description: "Lorem lorem",
-                      ),
-                    ],
-                  ),
-                ),
+                ViewHistorySchool(),
+                ViewHistoryWork(),
               ],
             ),
           ),
@@ -139,47 +85,5 @@ class _PageFlutterState extends State<PageFlutter> {
     } else {
       return ViewNoMobile();
     }
-  }
-}
-
-class EduWorkItem extends StatelessWidget {
-  final String title;
-  final String location;
-  final String description;
-
-  const EduWorkItem({
-    super.key,
-    required this.title,
-    required this.location,
-    required this.description,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 32.0, // Set your desired font size
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Text(
-          location,
-          style: const TextStyle(
-              fontSize: 32.0, // Set your desired font size
-              fontStyle: FontStyle.italic),
-        ),
-        // todo you probably want this back eventually
-        // Text(
-        //   description,
-        //   style: const TextStyle(fontSize: 24.0),
-        // ),
-        SizedBox(
-          height: 32,
-        )
-      ],
-    );
   }
 }
