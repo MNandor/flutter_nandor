@@ -33,7 +33,7 @@ class _PageCybersecState extends State<PageCybersec> {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
-    final double svgSize = 100;
+    const double svgSize = 100;
 
     final bool isWider = screenWidth > screenHeight;
 
@@ -42,10 +42,10 @@ class _PageCybersecState extends State<PageCybersec> {
         children: [
           Center(
               child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 1000),
+            constraints: const BoxConstraints(maxWidth: 1000),
             child: Column(
               children: [
-                SizedBox(height: svgSize),
+                const SizedBox(height: svgSize),
                 const Text(
                   "The Whole Lifecycle...",
                   style: TextStyle(
@@ -102,7 +102,7 @@ class _PageCybersecState extends State<PageCybersec> {
               ],
             ),
           )),
-          ViewLogosBackground(svgSize: svgSize),
+          const ViewLogosBackground(svgSize: svgSize),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,7 +111,7 @@ class _PageCybersecState extends State<PageCybersec> {
                   tag: "logo-android",
                   child: SvgPicture.asset('assets/images/android.svg',
                       width: svgSize, height: svgSize)),
-              SizedBox(
+              const SizedBox(
                 width: svgSize,
                 height: svgSize,
               ),
@@ -131,7 +131,7 @@ class _PageCybersecState extends State<PageCybersec> {
         ],
       );
     } else {
-      return ViewNoMobile();
+      return const ViewNoMobile();
     }
   }
 }

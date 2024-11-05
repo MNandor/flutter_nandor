@@ -5,7 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_nandor/ViewMyCuteFace.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'ViewLogosRow.dart';
 import 'ViewNoMobile.dart';
+import 'ViewTitleTextName.dart';
+import 'ViewTitleTextSlogan.dart';
 
 class PageMain extends StatefulWidget {
   const PageMain({super.key, required this.title});
@@ -44,7 +47,7 @@ class _PageMainState extends State<PageMain> {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
-    final double svgSize = 100;
+    const double svgSize = 100;
 
     final bool isWider = screenWidth > screenHeight;
 
@@ -71,54 +74,21 @@ class _PageMainState extends State<PageMain> {
           ),
           Center(
             child: Padding(
-              padding: EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(32.0),
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 1400, minWidth: 800),
-                child: Row(
+                constraints: const BoxConstraints(maxWidth: 1400, minWidth: 800),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "I'm Nándor",
-                            style: TextStyle(
-                              fontSize: 72.0, // Set your desired font size
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "I make secure Android apps.",
-                            style: TextStyle(
-                              fontSize: 48.0, // Set your desired font size
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            children: [
-                              Crab(
-                                  tag: "logo-android",
-                                  child: SvgPicture.asset(
-                                      'assets/images/android.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                              Crab(
-                                  tag: "logo-cybersec",
-                                  child: SvgPicture.asset(
-                                      'assets/images/cybersecurity.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                              Crab(
-                                  tag: "logo-flutter",
-                                  child: SvgPicture.asset(
-                                      'assets/images/flutter.svg',
-                                      width: svgSize,
-                                      height: svgSize)),
-                            ],
-                          )
+                          ViewTitleTextName(),
+                          ViewTitleTextSlogan(),
+                          ViewLogosRow(svgSize: svgSize)
                         ]),
-                    const SizedBox(
+                    SizedBox(
                       width: 32,
                     ),
                     //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
@@ -131,7 +101,7 @@ class _PageMainState extends State<PageMain> {
         ],
       );
     } else {
-      return ViewNoMobile();
+      return const ViewNoMobile();
     }
   }
 }

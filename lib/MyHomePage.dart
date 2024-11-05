@@ -7,6 +7,7 @@ import 'package:flutter_nandor/PageMain.dart';
 
 import 'PageAndroid.dart';
 import 'PageFinal.dart';
+import 'SiteMobile.dart';
 
 enum Language{
   ENGLISH,
@@ -93,6 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
+
+    final bool isWider = screenWidth > screenHeight;
+
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -140,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ],
       ) : null,
-      body: Coast(
+      body: isWider ? Coast(
         beaches: _beaches,
         controller: _coastController,
         onPageChanged: _onScroll,
@@ -148,12 +156,12 @@ class _MyHomePageState extends State<MyHomePage> {
         observers: [
           CrabController(),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
+      ) : SiteMobile(),
+      floatingActionButton: isWider ? FloatingActionButton(
         onPressed: _scrollDown,
         tooltip: reachedBottom ? 'Scroll up' : 'Scroll down',
         child: Icon(reachedBottom ? Icons.arrow_upward_sharp: Icons.arrow_downward_sharp),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ): null, // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
