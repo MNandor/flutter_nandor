@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_nandor/ViewCallToAction.dart';
 import 'package:flutter_nandor/ViewHistorySchool.dart';
 import 'package:flutter_nandor/ViewHistoryWork.dart';
 import 'package:flutter_nandor/ViewLogosRow.dart';
@@ -35,6 +36,7 @@ class SiteMobile extends StatelessWidget {
             ),
             ViewHistoryWork(),
             ViewHistorySchool(),
+            ViewCallToAction(),
           ],
         ),
       ),
