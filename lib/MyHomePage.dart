@@ -157,11 +157,11 @@ class _MyHomePageState extends State<MyHomePage> {
           CrabController(),
         ],
       ) : SiteMobile(),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: isWider ? FloatingActionButton(
         onPressed: _scrollDown,
         tooltip: reachedBottom ? 'Scroll up' : 'Scroll down',
         child: Icon(reachedBottom ? Icons.arrow_upward_sharp: Icons.arrow_downward_sharp),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ): null, // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
