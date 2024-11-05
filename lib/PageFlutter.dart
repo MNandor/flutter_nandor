@@ -44,7 +44,7 @@ class _PageFlutterState extends State<PageFlutter> {
     if (isWider) {
       return Stack(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.all(32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -83,7 +83,7 @@ class _PageFlutterState extends State<PageFlutter> {
         ],
       );
     } else {
-      return ViewNoMobile();
+      return const ViewNoMobile();
     }
   }
 }

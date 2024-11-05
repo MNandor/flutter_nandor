@@ -34,7 +34,7 @@ class ViewEduWorkItem extends StatelessWidget {
         //   description,
         //   style: const TextStyle(fontSize: 24.0),
         // ),
-        SizedBox(
+        const SizedBox(
           height: 32,
         )
       ],

@@ -7,7 +7,7 @@ class ViewTitleTextSlogan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "I make secure Android apps.",
       textAlign: TextAlign.center,
       style: TextStyle(

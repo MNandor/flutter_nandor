@@ -59,7 +59,7 @@ Future<void> _openMailtoLink() async {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
-    final double svgSize = 100;
+    const double svgSize = 100;
 
     final bool isWider = screenWidth > screenHeight;
 
@@ -86,9 +86,9 @@ Future<void> _openMailtoLink() async {
           ),
           Center(
             child: Padding(
-              padding: EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(32.0),
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 1400, minWidth: 800),
+                constraints: const BoxConstraints(maxWidth: 1400, minWidth: 800),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -115,7 +115,7 @@ Future<void> _openMailtoLink() async {
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 40, vertical: 20),
-                              textStyle: TextStyle(fontSize: 72),
+                              textStyle: const TextStyle(fontSize: 72),
                             ),
                             child: const Text('Download CV'),
                           ),
@@ -138,7 +138,7 @@ Future<void> _openMailtoLink() async {
                       width: 32,
                     ),
                     //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
-                    ViewMyCuteFace()
+                    const ViewMyCuteFace()
                   ],
                 ),
               ),
@@ -147,7 +147,7 @@ Future<void> _openMailtoLink() async {
         ],
       );
     } else {
-      return ViewNoMobile();
+      return const ViewNoMobile();
     }
   }
 }

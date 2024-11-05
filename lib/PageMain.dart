@@ -47,7 +47,7 @@ class _PageMainState extends State<PageMain> {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
 
-    final double svgSize = 100;
+    const double svgSize = 100;
 
     final bool isWider = screenWidth > screenHeight;
 
@@ -74,10 +74,10 @@ class _PageMainState extends State<PageMain> {
           ),
           Center(
             child: Padding(
-              padding: EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(32.0),
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 1400, minWidth: 800),
-                child: Row(
+                constraints: const BoxConstraints(maxWidth: 1400, minWidth: 800),
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Column(
@@ -88,7 +88,7 @@ class _PageMainState extends State<PageMain> {
                           ViewTitleTextSlogan(),
                           ViewLogosRow(svgSize: svgSize)
                         ]),
-                    const SizedBox(
+                    SizedBox(
                       width: 32,
                     ),
                     //Image.asset('assets/images/face.jpg', fit: BoxFit.contain,)
@@ -101,7 +101,7 @@ class _PageMainState extends State<PageMain> {
         ],
       );
     } else {
-      return ViewNoMobile();
+      return const ViewNoMobile();
     }
   }
 }

@@ -14,9 +14,9 @@ class SiteMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double svgSize = 100;
+    const double svgSize = 100;
 
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.all(32.0),
       child: SingleChildScrollView(
         child: Column(

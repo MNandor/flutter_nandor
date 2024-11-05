@@ -9,7 +9,7 @@ class ViewHistoryWork extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxWidth: 500),
+      constraints: const BoxConstraints(maxWidth: 500),
       child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

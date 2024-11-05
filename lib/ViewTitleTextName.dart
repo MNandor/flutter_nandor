@@ -7,7 +7,7 @@ class ViewTitleTextName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return const Text(
       "I'm Nándor",
       style: TextStyle(
         fontSize: 72.0, // Set your desired font size

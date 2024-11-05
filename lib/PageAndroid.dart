@@ -35,7 +35,7 @@ class _PageAndroidState extends State<PageAndroid>
     // Initialize the AnimationController
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 4), // Duration for one cycle of animation
+      duration: const Duration(seconds: 4), // Duration for one cycle of animation
     )..repeat(reverse: true); // Repeat the animation in reverse
 
     // Define the color animation using ColorTween
@@ -111,11 +111,11 @@ class _PageAndroidState extends State<PageAndroid>
         children: [
           Center(
               child: Padding(
-            padding: EdgeInsets.all(32.0),
+            padding: const EdgeInsets.all(32.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(width: 100.0),
+                const SizedBox(width: 100.0),
                 SizedBox(
                   width: 540,
                   child: Column(
@@ -137,7 +137,7 @@ class _PageAndroidState extends State<PageAndroid>
                       ),
                       Text(
                         appDescription,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24.0, // Set your desired font size
                         ),
                       ),
@@ -202,7 +202,7 @@ class _PageAndroidState extends State<PageAndroid>
         ],
       );
     } else {
-      return ViewNoMobile();
+      return const ViewNoMobile();
     }
   }
 }
