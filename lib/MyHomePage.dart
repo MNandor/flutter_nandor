@@ -1,4 +1,5 @@
 import 'package:coast/coast.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter_nandor/PageCybersec.dart';
@@ -43,7 +44,9 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      print("Callback");
+      if (kDebugMode) {
+        print("Callback");
+      }
       checkScreenSizeForFontSize();
     });
   }
@@ -68,7 +71,9 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     } else {
       Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(false);
     }
-    print("Screen: $screenWidth x $screenHeight");
+    if (kDebugMode) {
+      print("Screen: $screenWidth x $screenHeight");
+    }
   }
 
   final _beaches = [
