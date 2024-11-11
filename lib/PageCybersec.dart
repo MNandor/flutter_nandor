@@ -5,6 +5,9 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_nandor/ViewLogosBackground.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
+
+import 'GlobalStateProvider.dart';
 
 class PageCybersec extends StatefulWidget {
   const PageCybersec({super.key});
@@ -46,25 +49,25 @@ class _PageCybersecState extends State<PageCybersec> {
             child: Column(
               children: [
                 const SizedBox(height: svgSize),
-                const Text(
+                Text(
                   "The Whole Lifecycle...",
                   style: TextStyle(
-                    fontSize: 48.0, // Set your desired font size
+                    fontSize: Provider.of<GlobalStateProvider>(context).sizes.slogan, // Set your desired font size
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Text(
+                Text(
                   "I'm an Android Developer and a Security Researcher. I'm happy to integrate into your existing team and take on additional responsibilities related to Linux sysadmin work, DevOps, Malware Analysis, and Penetration Testing.",
                   style: TextStyle(
-                    fontSize: 24.0, // Set your desired font size
+                    fontSize: Provider.of<GlobalStateProvider>(context).sizes.body, // Set your desired font size
                   ),
                 ),
                 RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                         style: TextStyle(
-                          fontSize: 24.0, // Set your desired font size
+                          fontSize: Provider.of<GlobalStateProvider>(context).sizes.body, // Set your desired font size
                         ),
-                        children: [
+                        children: const [
                       TextSpan(
                           text:
                               "For previous employers, I've ususally worked in "),
@@ -76,11 +79,11 @@ class _PageCybersecState extends State<PageCybersec> {
                               ". I've organized Workshops to train junior colleagues."),
                     ])),
                 RichText(
-                    text: const TextSpan(
+                    text: TextSpan(
                         style: TextStyle(
-                          fontSize: 24.0, // Set your desired font size
+                          fontSize: Provider.of<GlobalStateProvider>(context).sizes.body, // Set your desired font size
                         ),
-                        children: [
+                        children: const [
                       TextSpan(
                           text: "In terms of Android development, I focus on "),
                       TextSpan(

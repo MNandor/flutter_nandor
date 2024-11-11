@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:coast/coast.dart';
+import 'package:flutter_nandor/GlobalStateProvider.dart';
+import 'package:provider/provider.dart';
 
 import 'MyHomePage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+        create: (_) => GlobalStateProvider(), child: const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -38,5 +43,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

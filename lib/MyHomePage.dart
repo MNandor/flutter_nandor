@@ -1,10 +1,13 @@
 import 'package:coast/coast.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter_nandor/PageCybersec.dart';
 import 'package:flutter_nandor/PageFlutter.dart';
 import 'package:flutter_nandor/PageMain.dart';
+import 'package:provider/provider.dart';
 
+import 'GlobalStateProvider.dart';
 import 'PageAndroid.dart';
 import 'PageFinal.dart';
 import 'SiteMobile.dart';
@@ -34,7 +37,44 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      if (kDebugMode) {
+        print("Callback");
+      }
+      checkScreenSizeForFontSize();
+    });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeMetrics() {
+    checkScreenSizeForFontSize();
+  }
+
+  void checkScreenSizeForFontSize(){
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
+    if (screenHeight < 600 || screenWidth < 700){
+      Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(true);
+    } else {
+      Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(false);
+    }
+    if (kDebugMode) {
+      print("Screen: $screenWidth x $screenHeight");
+    }
+  }
 
   final _beaches = [
     Beach(builder: (context) => PageMain(title: "Welcome!")),
@@ -82,11 +122,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _scrollDown(){
     setState(() {
-      if (reachedBottom)
+
+      if (reachedBottom) {
         _coastController.animateTo(beach: 0);
-      else
+      } else {
         _coastController.animateTo(beach: currentPage +1);
+      }
     });
+
   }
 
 // todo change this when ready

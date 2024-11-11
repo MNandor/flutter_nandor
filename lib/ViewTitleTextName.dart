@@ -1,4 +1,6 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_nandor/GlobalStateProvider.dart';
+import 'package:provider/provider.dart';
 
 class ViewTitleTextName extends StatelessWidget {
   const ViewTitleTextName({
@@ -7,10 +9,10 @@ class ViewTitleTextName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
+    return Text(
       "I'm Nándor",
       style: TextStyle(
-        fontSize: 72.0, // Set your desired font size
+        fontSize: Provider.of<GlobalStateProvider>(context).sizes.title, // Set your desired font size
         fontWeight: FontWeight.bold,
       ),
     );

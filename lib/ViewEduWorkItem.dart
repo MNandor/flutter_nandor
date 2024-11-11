@@ -1,4 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+
+import 'GlobalStateProvider.dart';
 
 class ViewEduWorkItem extends StatelessWidget {
   final String title;
@@ -18,15 +21,15 @@ class ViewEduWorkItem extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 32.0, // Set your desired font size
+          style: TextStyle(
+            fontSize: Provider.of<GlobalStateProvider>(context).sizes.section, // Set your desired font size
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           location,
-          style: const TextStyle(
-              fontSize: 32.0, // Set your desired font size
+          style: TextStyle(
+              fontSize: Provider.of<GlobalStateProvider>(context).sizes.section, // Set your desired font size
               fontStyle: FontStyle.italic),
         ),
         // todo you probably want this back eventually
