@@ -4,7 +4,9 @@ import 'package:country_flags/country_flags.dart';
 import 'package:flutter_nandor/PageCybersec.dart';
 import 'package:flutter_nandor/PageFlutter.dart';
 import 'package:flutter_nandor/PageMain.dart';
+import 'package:provider/provider.dart';
 
+import 'GlobalStateProvider.dart';
 import 'PageAndroid.dart';
 import 'PageFinal.dart';
 import 'SiteMobile.dart';
@@ -82,11 +84,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _scrollDown(){
     setState(() {
+
+      // todo test code, move somewhere else
+      Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(2);
+
       if (reachedBottom)
         _coastController.animateTo(beach: 0);
       else
         _coastController.animateTo(beach: currentPage +1);
     });
+
   }
 
 // todo change this when ready
