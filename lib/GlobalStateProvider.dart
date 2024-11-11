@@ -19,12 +19,12 @@ class GlobalStateProvider with ChangeNotifier{
 
   TextSizeSet sizes = bigSizes;
 
-  void setFontMultiplier(int newValue){
-    if (sizes == bigSizes)
+  void setFontMultiplier(bool makeItSmall){
+    if (makeItSmall) {
       sizes = smallSizes;
-    else
+    } else {
       sizes = bigSizes;
-
+    }
     
     notifyListeners();
   }

@@ -36,7 +36,35 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeMetrics() {
+    checkScreenSizeForFontSize();
+  }
+
+  void checkScreenSizeForFontSize(){
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double screenHeight = MediaQuery.of(context).size.height;
+
+    if (screenHeight < 600 || screenWidth < 700){
+      Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(true);
+    } else {
+      Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(false);
+    }
+  }
 
   final _beaches = [
     Beach(builder: (context) => PageMain(title: "Welcome!")),
@@ -85,15 +113,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void _scrollDown(){
     setState(() {
 
-      // todo test code, move somewhere else
-      Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(2);
-
-      return;
-
-      if (reachedBottom)
+      if (reachedBottom) {
         _coastController.animateTo(beach: 0);
-      else
+      } else {
         _coastController.animateTo(beach: currentPage +1);
+      }
     });
 
   }
