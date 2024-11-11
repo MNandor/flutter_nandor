@@ -6,6 +6,9 @@ import 'package:flutter_nandor/ViewLogosBackground.dart';
 import 'package:flutter_nandor/ViewNoMobile.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:provider/provider.dart';
+
+import 'GlobalStateProvider.dart';
 
 class PageAndroid extends StatefulWidget {
   const PageAndroid({super.key});
@@ -122,23 +125,23 @@ class _PageAndroidState extends State<PageAndroid>
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         "I've made...",
                         style: TextStyle(
-                          fontSize: 24.0, // Set your desired font size
+                          fontSize: Provider.of<GlobalStateProvider>(context).sizes.body, // Set your desired font size
                         ),
                       ),
                       Text(
                         appName,
-                        style: const TextStyle(
-                          fontSize: 48.0, // Set your desired font size
+                        style: TextStyle(
+                          fontSize: Provider.of<GlobalStateProvider>(context).sizes.slogan, // Set your desired font size
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
                         appDescription,
-                        style: const TextStyle(
-                          fontSize: 24.0, // Set your desired font size
+                        style: TextStyle(
+                          fontSize: Provider.of<GlobalStateProvider>(context).sizes.body, // Set your desired font size
                         ),
                       ),
                     ],

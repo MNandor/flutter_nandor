@@ -1,4 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+
+import 'GlobalStateProvider.dart';
 
 class ViewTitleTextSlogan extends StatelessWidget {
   const ViewTitleTextSlogan({
@@ -7,11 +10,11 @@ class ViewTitleTextSlogan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text(
+    return Text(
       "I make secure Android apps.",
       textAlign: TextAlign.center,
       style: TextStyle(
-        fontSize: 48.0, // Set your desired font size
+        fontSize: Provider.of<GlobalStateProvider>(context).sizes.slogan, // Set your desired font size
         fontWeight: FontWeight.bold,
       ),
     );

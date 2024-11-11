@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'GlobalStateProvider.dart';
 
 class ViewCallToAction extends StatelessWidget {
   const ViewCallToAction({
@@ -27,17 +30,17 @@ Future<void> _openMailtoLink() async {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             "Make your app.",
             style: TextStyle(
-              fontSize: 48.0, // Set your desired font size
+              fontSize: Provider.of<GlobalStateProvider>(context).sizes.slogan, // Set your desired font size
               fontWeight: FontWeight.bold,
             ),
           ),
-          const Text(
+          Text(
             "Make it secure.",
             style: TextStyle(
-              fontSize: 48.0, // Set your desired font size
+              fontSize: Provider.of<GlobalStateProvider>(context).sizes.slogan, // Set your desired font size
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -46,17 +49,17 @@ Future<void> _openMailtoLink() async {
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(
                   horizontal: 40, vertical: 20),
-              textStyle: const TextStyle(fontSize: 72),
+              textStyle: TextStyle(fontSize: Provider.of<GlobalStateProvider>(context).sizes.title),
             ),
             child: const Text('Download CV'),
           ),
           InkWell(
             onTap: _openMailtoLink,
-            child: const Text(
+            child: Text(
               'Or email me directly...',
               style: TextStyle(
                 fontSize:
-                    24, // You can adjust the font size as needed
+                    Provider.of<GlobalStateProvider>(context).sizes.body, // You can adjust the font size as needed
                 color: Colors
                     .blue, // Change color to indicate it's clickable
                 decoration: TextDecoration

@@ -12,7 +12,7 @@ class ViewTitleTextName extends StatelessWidget {
     return Text(
       "I'm Nándor",
       style: TextStyle(
-        fontSize: 72.0*Provider.of<GlobalStateProvider>(context).fontMultiplier, // Set your desired font size
+        fontSize: Provider.of<GlobalStateProvider>(context).sizes.title, // Set your desired font size
         fontWeight: FontWeight.bold,
       ),
     );

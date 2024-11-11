@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextSizeSet{
-  final int title;
-  final int slogan;
-  final int section;
-  final int body;
+  final double title;
+  final double slogan;
+  final double section;
+  final double body;
 
-  TextSizeSet(this.title, this.slogan, this.section, this.body);
+  const TextSizeSet(this.title, this.slogan, this.section, this.body);
 }
 
 class GlobalStateProvider with ChangeNotifier{
@@ -14,11 +14,18 @@ class GlobalStateProvider with ChangeNotifier{
 
   int get fontMultiplier => _fontMultiplier;
 
-  TextSizeSet sizes = TextSizeSet(72, 48, 32, 24);
-  TextSizeSet smallSizes = TextSizeSet(54, 36, 24, 18);
+  static const TextSizeSet bigSizes = TextSizeSet(72, 48, 32, 24);
+  static const TextSizeSet smallSizes = TextSizeSet(54, 36, 24, 18);
+
+  TextSizeSet sizes = bigSizes;
 
   void setFontMultiplier(int newValue){
-    _fontMultiplier = newValue;
+    if (sizes == bigSizes)
+      sizes = smallSizes;
+    else
+      sizes = bigSizes;
+
+    
     notifyListeners();
   }
 

@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_nandor/ViewEduWorkItem.dart';
+import 'package:provider/provider.dart';
+
+import 'GlobalStateProvider.dart';
 
 class ViewHistoryWork extends StatelessWidget {
   const ViewHistoryWork({
@@ -10,27 +13,27 @@ class ViewHistoryWork extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 500),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             "Work Experience",
             style: TextStyle(
-              fontSize: 48.0, // Set your desired font size
+              fontSize: Provider.of<GlobalStateProvider>(context).sizes.slogan, // Set your desired font size
               fontWeight: FontWeight.bold,
             ),
           ),
-          ViewEduWorkItem(
+          const ViewEduWorkItem(
             title: "Android Reverse Engineer",
             location: "Cognizant",
             description: "Lorem lorem",
           ),
-          ViewEduWorkItem(
+          const ViewEduWorkItem(
             title: "Android Engineer",
             location: "Endava",
             description: "Lorem lorem",
           ),
-          ViewEduWorkItem(
+          const ViewEduWorkItem(
             title: "Mobile Developer",
             location: "Accenture",
             description: "Lorem lorem",

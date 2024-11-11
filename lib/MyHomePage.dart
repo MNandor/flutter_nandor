@@ -88,6 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // todo test code, move somewhere else
       Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(2);
 
+      return;
+
       if (reachedBottom)
         _coastController.animateTo(beach: 0);
       else
