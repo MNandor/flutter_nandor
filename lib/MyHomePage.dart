@@ -42,6 +42,10 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      print("Callback");
+      checkScreenSizeForFontSize();
+    });
   }
 
   @override
@@ -64,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     } else {
       Provider.of<GlobalStateProvider>(context, listen: false).setFontMultiplier(false);
     }
+    print("Screen: $screenWidth x $screenHeight");
   }
 
   final _beaches = [
