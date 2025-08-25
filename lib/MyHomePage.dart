@@ -1,5 +1,6 @@
 import 'package:coast/coast.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter_nandor/PageCybersec.dart';
@@ -151,60 +152,132 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver{
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: shouldShowAppBar? AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-         actions: [
-          IconButton(
-            icon: CountryFlag.fromLanguageCode('en', shape: const Circle(),),
-            tooltip: 'English',
-            onPressed: () {
-              _setLanguage(Language.ENGLISH);
-            },
-          ),
-          IconButton(
-            icon: CountryFlag.fromLanguageCode('de', shape: const Circle(),),
-            tooltip: 'German',
-            onPressed: () {
-              _setLanguage(Language.GERMAN);
-            },
-          ),
-          IconButton(
-            icon: CountryFlag.fromCountryCode('ro', shape: const Circle(),),
-            tooltip: 'Romanian',
-            onPressed: () {
-              _setLanguage(Language.ROMANIAN);
-            },
-          ),
-          IconButton(
-            icon: CountryFlag.fromCountryCode('se', shape: const Circle(),),
-            tooltip: 'Romanian',
-            onPressed: () {
-              _setLanguage(Language.SWEDISH);
-            },
-          ),
+      appBar: shouldShowAppBar
+          ? AppBar(
+              // TRY THIS: Try changing the color here to a specific color (to
+              // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+              // change color while the other colors stay the same.
+              backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+              // Here we take the value from the MyHomePage object that was created by
+              // the App.build method, and use it to set our appbar title.
+              title: Text(widget.title),
+              actions: [
+                IconButton(
+                  icon: CountryFlag.fromLanguageCode(
+                    'en',
+                    shape: const Circle(),
+                  ),
+                  tooltip: 'English',
+                  onPressed: () {
+                    _setLanguage(Language.ENGLISH);
+                  },
+                ),
+                IconButton(
+                  icon: CountryFlag.fromLanguageCode(
+                    'de',
+                    shape: const Circle(),
+                  ),
+                  tooltip: 'German',
+                  onPressed: () {
+                    _setLanguage(Language.GERMAN);
+                  },
+                ),
+                IconButton(
+                  icon: CountryFlag.fromCountryCode(
+                    'ro',
+                    shape: const Circle(),
+                  ),
+                  tooltip: 'Romanian',
+                  onPressed: () {
+                    _setLanguage(Language.ROMANIAN);
+                  },
+                ),
+                IconButton(
+                  icon: CountryFlag.fromCountryCode(
+                    'se',
+                    shape: const Circle(),
+                  ),
+                  tooltip: 'Romanian',
+                  onPressed: () {
+                    _setLanguage(Language.SWEDISH);
+                  },
+                ),
+              ],
+            )
+          : null,
+      body: isWider
+          ? ScrollConfiguration(
+              behavior: NoMouseWheelScrollBehavior(),
+              child: Listener(
+                // Intercept scroll before Coast sees it
+                onPointerSignal: (event) {
+                  print(event);
+                  if (event is PointerScrollEvent) {
+                    final now = DateTime.now();
 
-        ],
-      ) : null,
-      body: isWider ? Coast(
-        beaches: _beaches,
-        controller: _coastController,
-        onPageChanged: _onScroll,
-        scrollDirection: Axis.vertical,
-        observers: [
-          CrabController(),
-        ],
-      ) : SiteMobile(),
-      floatingActionButton: isWider ? FloatingActionButton(
-        onPressed: _scrollDown,
-        tooltip: reachedBottom ? 'Scroll up' : 'Scroll down',
-        child: Icon(reachedBottom ? Icons.arrow_upward_sharp: Icons.arrow_downward_sharp),
-      ): null, // This trailing comma makes auto-formatting nicer for build methods.
+                    if (event.scrollDelta.dy > 0) {
+                      // Scrolling down
+                      if (currentPage < _beaches.length - 1) {
+                        if (_lastScrollDown == null ||
+                            now.difference(_lastScrollDown!) >
+                                const Duration(milliseconds: 300)) {
+                          currentPage++;
+                          _coastController.animateTo(beach: currentPage);
+                          _lastScrollDown = now;
+                        }
+                      }
+                    } else if (event.scrollDelta.dy < 0) {
+                      // Scrolling up
+                      if (currentPage > 0) {
+                        if (_lastScrollUp == null ||
+                            now.difference(_lastScrollUp!) >
+                                const Duration(milliseconds: 300)) {
+                          currentPage--;
+                          _coastController.animateTo(beach: currentPage);
+                          _lastScrollUp = now;
+                        }
+                      }
+                    }
+                  }
+                },
+                child: Coast(
+                  beaches: _beaches,
+                  controller: _coastController,
+                  onPageChanged: _onScroll,
+                  scrollDirection: Axis.vertical,
+                  observers: [
+                    CrabController(),
+                  ],
+                ),
+              ),
+            )
+          : SiteMobile(),
+      floatingActionButton: isWider
+          ? FloatingActionButton(
+              onPressed: _scrollDown,
+              tooltip: reachedBottom ? 'Scroll up' : 'Scroll down',
+              child: Icon(reachedBottom
+                  ? Icons.arrow_upward_sharp
+                  : Icons.arrow_downward_sharp),
+            )
+          : null, // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  DateTime? _lastScrollUp;
+  DateTime? _lastScrollDown;
+}
+
+class NoMouseWheelScrollBehavior extends ScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch, // still allow touch drag
+        PointerDeviceKind.stylus,
+      };
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    // Prevent default scrolling
+    return const NeverScrollableScrollPhysics();
   }
 }
